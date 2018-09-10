@@ -1,6 +1,8 @@
 import React from "react";
 import { View, StyleSheet } from "react-native";
 import { Button, Text } from "native-base";
+import { Card } from "react-native-elements";
+import Carousel from "react-native-snap-carousel";
 import sharedStyle from "../../style/shared";
 
 const style = StyleSheet.create({
@@ -24,13 +26,39 @@ export default class Collections extends React.Component {
 			)
 		};
 	};
-	render() {
+
+	_renderItem({ item, index }) {
 		return (
-			<View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-				<Text style={{ fontSize: 30 }}>Collections</Text>
-				<Button
-					onPress={() => this.props.navigation.goBack()}
-					title="Dismiss"
+			<View>
+				<Card title="HELLO WORLD">
+					<Text>{item.title}</Text>
+				</Card>
+			</View>
+		);
+	}
+
+	render() {
+		const data = [
+			{ title: "cow" },
+			{ title: "cow" },
+			{ title: "cow" },
+			{ title: "cow" },
+			{ title: "cow" }
+		];
+		return (
+			<View style={{ flex: 1 }}>
+				<Carousel
+					data={data}
+					renderItem={this._renderItem}
+					sliderWidth={400}
+					itemWidth={300}
+				/>
+				<Carousel
+					layout={"default"}
+					data={data}
+					renderItem={this._renderItem}
+					sliderWidth={400}
+					itemWidth={300}
 				/>
 			</View>
 		);

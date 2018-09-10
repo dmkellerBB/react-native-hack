@@ -45,6 +45,7 @@
     "react-native": "0.52.0",
     "react-native-easy-grid": "^0.1.17",
     "react-native-elements": "^0.19.1",
+    "react-native-snap-carousel": "^3.7.3",
     "react-native-vector-icons": "^4.5.0",
     "react-navigation": "^1.5.8",
     "react-navigation-redux-helpers": "^1.0.3",

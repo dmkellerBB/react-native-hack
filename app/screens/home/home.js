@@ -1,6 +1,6 @@
 import React from "react";
 import { View, ScrollView, StyleSheet } from "react-native";
-import { Card, ListItem } from "react-native-elements";
+import { Card } from "react-native-elements";
 import { Text, Button } from "native-base";
 
 import sharedStyle from "../../style/shared";

@@ -1,9 +1,9 @@
 import Home from "./home/home";
-import Apps from "./apps/apps";
-import Sense from "./sense/sense";
+import Collections from "./collections/collections";
+import Webview from "./webview/webview";
 
 export default {
 	Home,
-	Apps,
-	Sense
+	Collections,
+	Webview
 };

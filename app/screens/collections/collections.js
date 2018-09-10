@@ -9,7 +9,7 @@ const style = StyleSheet.create({
 	}
 });
 
-export default class loginScreen extends React.Component {
+export default class Collections extends React.Component {
 	static navigationOptions = props => {
 		return {
 			headerRight: (
@@ -17,9 +17,9 @@ export default class loginScreen extends React.Component {
 					transparent
 					iconLeft
 					style={sharedStyle.headerButton}
-					onPress={() => props.navigation.navigate("Sense")}
+					onPress={() => props.navigation.navigate("Webview")}
 				>
-					<Text style={style.backText}>App</Text>
+					<Text style={style.backText}>Webview</Text>
 				</Button>
 			)
 		};
@@ -27,7 +27,7 @@ export default class loginScreen extends React.Component {
 	render() {
 		return (
 			<View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-				<Text style={{ fontSize: 30 }}>Show Apps</Text>
+				<Text style={{ fontSize: 30 }}>Collections</Text>
 				<Button
 					onPress={() => this.props.navigation.goBack()}
 					title="Dismiss"

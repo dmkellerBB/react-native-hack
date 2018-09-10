@@ -3,7 +3,7 @@ import { StackNavigator, TabNavigator } from "react-navigation";
 import Icon from "react-native-vector-icons/FontAwesome";
 import screens from "../screens";
 
-const { Home, Apps, Sense } = screens;
+const { Home, Collections, Webview } = screens;
 
 const Tabs = TabNavigator(
 	{
@@ -15,11 +15,11 @@ const Tabs = TabNavigator(
 				tabBarIcon: () => <Icon name="home" size={20} />
 			}
 		},
-		Apps: {
-			screen: Apps,
+		Collections: {
+			screen: Collections,
 			navigationOptions: {
 				gesturesEnabled: false,
-				tabBarLabel: "Apps",
+				tabBarLabel: "Collections",
 				tabBarIcon: () => <Icon name="th-large" size={20} />
 			}
 		}
@@ -38,8 +38,8 @@ const MainNavigator = StackNavigator(
 		App: {
 			screen: Tabs
 		},
-		Sense: {
-			screen: Sense
+		Webview: {
+			screen: Webview
 		}
 	},
 	{

@@ -17,9 +17,9 @@ export default class loginScreen extends React.PureComponent {
 					transparent
 					iconLeft
 					style={sharedStyle.headerButton}
-					onPress={() => props.navigation.navigate("Apps")}
+					onPress={() => props.navigation.navigate("Webview")}
 				>
-					<Text style={style.backText}>Apps</Text>
+					<Text style={style.backText}>Webview</Text>
 				</Button>
 			)
 		};
@@ -28,7 +28,7 @@ export default class loginScreen extends React.PureComponent {
 	render() {
 		return (
 			<View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-				<Text style={{ fontSize: 30 }}>Show Collections</Text>
+				<Text style={{ fontSize: 30 }}>Kpi's and shit like that</Text>
 				<Button
 					onPress={() => this.props.navigation.goBack()}
 					title="Dismiss"

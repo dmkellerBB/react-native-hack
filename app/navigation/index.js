@@ -20,14 +20,14 @@ const Tabs = TabNavigator(
 			navigationOptions: {
 				gesturesEnabled: false,
 				tabBarLabel: "Apps",
-				tabBarIcon: () => <Icon name="list" size={20} />
+				tabBarIcon: () => <Icon name="th-large" size={20} />
 			}
 		}
 	},
 	{
 		tabBarOptions: {
-			activeTintColor: "green",
-			inactiveTintColor: "gray"
+			activeTintColor: "black",
+			inactiveTintColor: "#bfbfbf"
 		},
 		animationEnabled: true
 	}

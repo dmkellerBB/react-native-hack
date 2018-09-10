@@ -1,8 +1,8 @@
 import { StyleSheet } from "react-native";
 
 export default StyleSheet.create({
-	rightHeaderButton: {
-		width: 70,
+	headerButton: {
+		width: 75,
 		height: 40,
 		flex: 1,
 		justifyContent: "center",

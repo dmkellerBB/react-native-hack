@@ -16,10 +16,10 @@ export default class loginScreen extends React.PureComponent {
 				<Button
 					transparent
 					iconLeft
-					style={sharedStyle.rightHeaderButton}
-					onPress={() => props.navigation.navigate("Sense")}
+					style={sharedStyle.headerButton}
+					onPress={() => props.navigation.navigate("Apps")}
 				>
-					<Text style={style.backText}>App</Text>
+					<Text style={style.backText}>Apps</Text>
 				</Button>
 			)
 		};

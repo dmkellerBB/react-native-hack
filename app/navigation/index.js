@@ -37,6 +37,9 @@ const MainNavigator = StackNavigator(
 	{
 		App: {
 			screen: Tabs
+		},
+		Sense: {
+			screen: Sense
 		}
 	},
 	{

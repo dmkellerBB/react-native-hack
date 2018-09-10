@@ -5,7 +5,7 @@ import sharedStyle from "../../style/shared";
 import Icon from "react-native-vector-icons/FontAwesome";
 
 const style = StyleSheet.create({
-	cancelText: {
+	backText: {
 		color: "black"
 	}
 });
@@ -13,14 +13,17 @@ const style = StyleSheet.create({
 export default class Sense extends React.Component {
 	static navigationOptions = props => {
 		return {
-			headerRight: (
+			headerTitle: "Qlik App",
+			headerLeft: (
 				<Button
-					transparent
 					iconLeft
-					style={sharedStyle.rightHeaderButton}
-					onPress={() => props.navigation.navigate("LeadForm")}
+					light
+					transparent
+					style={{ marginLeft: 10 }}
+					onPress={() => props.navigation.goBack()}
 				>
-					<Icon name="plus" size={20} />
+					<Icon name="chevron-left" size={20} />
+					<Text style={style.backText}>Back</Text>
 				</Button>
 			)
 		};

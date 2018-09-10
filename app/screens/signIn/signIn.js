@@ -40,11 +40,11 @@ class LoginScreen extends React.PureComponent {
         <Form>
           <Item stackedLabel>
             <Label>Username</Label>
-            <Input/>
+            <Input autoCapitalize="none" />
           </Item>
           <Item stackedLabel last>
             <Label>Password</Label>
-            <Input/>
+            <Input />
           </Item>
         </Form>
       </View>

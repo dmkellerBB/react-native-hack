@@ -28,7 +28,7 @@ export default class loginScreen extends React.PureComponent {
 	render() {
 		return (
 			<View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-				<Text style={{ fontSize: 30 }}>Leads page!</Text>
+				<Text style={{ fontSize: 30 }}>Show Collections</Text>
 				<Button
 					onPress={() => this.props.navigation.goBack()}
 					title="Dismiss"

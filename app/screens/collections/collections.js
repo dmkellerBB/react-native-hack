@@ -1,5 +1,5 @@
 import React from "react";
-import { View, StyleSheet } from "react-native";
+import { ScrollView, View, StyleSheet } from "react-native";
 import { Button, Text } from "native-base";
 import { Card } from "react-native-elements";
 import Carousel from "react-native-snap-carousel";
@@ -30,7 +30,7 @@ export default class Collections extends React.Component {
 	_renderItem({ item, index }) {
 		return (
 			<View>
-				<Card title="HELLO WORLD">
+				<Card title="Collection">
 					<Text>{item.title}</Text>
 				</Card>
 			</View>
@@ -39,28 +39,25 @@ export default class Collections extends React.Component {
 
 	render() {
 		const data = [
-			{ title: "cow" },
-			{ title: "cow" },
-			{ title: "cow" },
-			{ title: "cow" },
-			{ title: "cow" }
+			{ title: "Insight chart" },
+			{ title: "Lund app" },
+			{ title: "Boston app" },
+			{ title: "kpi chart" },
+			{ title: "Stock market app" }
 		];
+		const collections = [1, 2, 3, 4, 5, 6];
 		return (
-			<View style={{ flex: 1 }}>
-				<Carousel
-					data={data}
-					renderItem={this._renderItem}
-					sliderWidth={400}
-					itemWidth={300}
-				/>
-				<Carousel
-					layout={"default"}
-					data={data}
-					renderItem={this._renderItem}
-					sliderWidth={400}
-					itemWidth={300}
-				/>
-			</View>
+			<ScrollView>
+				{collections.map(key => (
+					<Carousel
+						key={key}
+						data={data}
+						renderItem={this._renderItem}
+						sliderWidth={400}
+						itemWidth={300}
+					/>
+				))}
+			</ScrollView>
 		);
 	}
 }

@@ -30,7 +30,7 @@ export default class loginScreen extends React.PureComponent {
 	render() {
 		const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 		return (
-			<ScrollView style={{ flex: 1 }}>
+			<ScrollView>
 				{cards.map(key => (
 					<Card key={key} title="HELLO WORLD">
 						<Text style={{ marginBottom: 10 }}>

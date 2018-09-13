@@ -12,14 +12,16 @@ const style = StyleSheet.create({
 });
 
 export default class FavoriteItems extends React.Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {
       favoriteItems: []
     }
   }
+
   static navigationOptions = props => {
     return {
+      headerTitle: "Home",
       headerRight: (
         <Button
           transparent
@@ -30,20 +32,10 @@ export default class FavoriteItems extends React.Component {
           <Text style={style.backText}>Webview</Text>
         </Button>
       )
-    };
-  };
-
-  _renderItem({ item, index }) {
-    return (
-      <View>
-        <Card title="Favorites">
-          <Text>{item.title}</Text>
-        </Card>
-      </View>
-    );
+    }
   }
 
-  async componentDidMount() {
+  async componentDidMount () {
     try {
       let res = await axios({
         url: 'https://dev-integration2.us.qlik-stage.com/api/v1/collections/5b9ab7a7b277760001ecab27/items',
@@ -58,7 +50,7 @@ export default class FavoriteItems extends React.Component {
     }
   }
 
-  render() {
+  render () {
     return (
       <ScrollView>
         {this.state.favoriteItems.map(({ id, name, description, type, itemCount }) => (

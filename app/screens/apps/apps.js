@@ -15,6 +15,27 @@ export default class Apps extends React.Component {
     return dateformat(new Date(date))
   }
 
+  static navigationOptions = props => {
+    return {
+      headerTitle: "Apps",
+      headerLeft: (
+        <Button
+          icon={{
+            name: 'chevron-left',
+            size: 20,
+            color: 'black'
+          }}
+          title='Back'
+          onPress={() => props.navigation.goBack()}
+          buttonStyle={{
+            backgroundColor: 'transparent'
+          }}
+          color='#000'
+        />
+      )
+    }
+  }
+
   render () {
     return (
       <ScrollView>

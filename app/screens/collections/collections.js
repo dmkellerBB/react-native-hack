@@ -52,13 +52,12 @@ export default class Collections extends React.Component {
   render () {
     return (
       <ScrollView>
-        {this.state.collections.map(({ name, description, type, itemsCount }) => (
-          <View>
+        {this.state.collections.map(({ id, name, description, type, itemCount }) => (
+          <View key={id} >
             <Card title={name}>
               <Text>{description}</Text>
               <Text>{type}</Text>
-              <Text>{description}</Text>
-              <Text>{itemsCount}</Text>
+              <Text>{itemCount}</Text>
             </Card>
           </View>
         ))}

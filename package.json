@@ -33,6 +33,7 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "dateformat": "^3.0.3",
     "enzyme": "^3.3.0",
     "enzyme-to-json": "^3.3.3",
     "expo": "^25.0.0",

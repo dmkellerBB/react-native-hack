@@ -36,14 +36,34 @@ export default class Apps extends React.Component {
     }
   }
 
+  onAppOpen (url) {
+    alert(url)
+  }
+
   render () {
     return (
       <ScrollView>
-        {this.props.navigation.state.params.items.map(({ id, name, description, createdAt }) => (
+        {this.props.navigation.state.params.items.map(({ id, name, description, createdAt, links: { open, thumbnail: { href } } }) => (
           <View key={id}>
-            <Card title={name}>
+            <Card title={name} Image={href}>
               <Text>description: {description}</Text>
               <Text>created: {this.getDate(createdAt)}</Text>
+              <Button
+                rightIcon={{ name: 'open-in-new' }}
+                title='OPEN APP'
+                fontSize={12}
+                color='#63a649'
+                buttonStyle={{
+                  backgroundColor: "#fff",
+                  width: 300,
+                  height: 35,
+                  borderColor: "#63a649",
+                  borderWidth: 1,
+                  borderRadius: 5,
+                  marginTop: 20
+                }}
+                onPress={() => { this.onAppOpen(open.href) }}
+              />
             </Card>
           </View>
         ))}

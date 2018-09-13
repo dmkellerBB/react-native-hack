@@ -13,7 +13,7 @@ const style = StyleSheet.create({
 });
 
 export default class Collections extends React.Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {
       collections: []
@@ -34,34 +34,22 @@ export default class Collections extends React.Component {
     };
   };
 
-  _renderItem({ item, index }) {
-    return (
-      <View>
-        <Card title="Collection">
-          <Text>{item.title}</Text>
-        </Card>
-      </View>
-    );
-  }
-
-  async componentDidMount() {
+  async componentDidMount () {
     try {
       let res = await axios({
-        url: 'https://qcs.us.qlik-stage.com/api/v1/collections',
+        method: 'get',
+        url: 'https://dev-integration2.us.qlik-stage.com/api/v1/collections',
         headers: {
-          'cookie': 'eas.sid=yZCBC2dK8x6OSwyn1OAmMIoO_2TCrLeB; eas.sid.sig=U3rprELcsT5RpOXQQP1rMsLTzO4',
-          //'accept': '*/*',
-          //'authority': 'qcs.us.qlik-stage.com'
+          'Authorization': `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik5EUXpSRU5CTlRsRk1EazNOMEU1TVVRMU1qUTROVEZFTTBZNU56SXlSakZFUXpZNE9FSTBPUSJ9.eyJpc3MiOiJodHRwczovL3FsaWstaHlicmlkLmF1dGgwLmNvbS8iLCJzdWIiOiJVVkZQdGtRamZYUEJtSzU4MnZGM0lTRUVUcDBvVTVlNUBjbGllbnRzIiwiYXVkIjoicWxpay5hcGkiLCJpYXQiOjE1MzY4NjIzMzEsImV4cCI6MTUzNjk0ODczMSwiYXpwIjoiVVZGUHRrUWpmWFBCbUs1ODJ2RjNJU0VFVHAwb1U1ZTUiLCJndHkiOiJjbGllbnQtY3JlZGVudGlhbHMifQ.rEhefDS1PAu4fNl_HRCYBwL1NpWeoS29Ze9b1eZ4EDsrfpOgShryHJlS829nQySw-0OIGQvcpgNmxQtFsOuLkeA4FdyZ8ftJj6OnXRYpJ2WuFfKTL5LHzz09uJsqALAOM3poRjO1hH1hSbHrKioeATe0DMooEHCmFaIB3VkMs54-dVUXXtGfBJoFY5LdfGCs4xBQuEfw8PFwGPNN9AU5LAcLMlIVq2jBhMZrF7GUjHzTrSKM6mGWeI7Fo_cDW4pN48u2utS60dpo9onDZ-smStQkBeVi2cuiDrL-SSeBNhEZxpVTq3Wh39xgoOyMWdd7hryMTXlGYspoCEQR_GAmWw`
         }
       })
-      console.log(res)
       this.setState({ collections: res.data.data })
     } catch (err) {
       console.log(err)
     }
   }
 
-  render() {
+  render () {
     return (
       <ScrollView>
         {this.state.collections.map(({ name, description, type, itemsCount }) => (

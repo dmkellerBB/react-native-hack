@@ -1,9 +1,8 @@
 import React from "react";
-import { View, ScrollView, StyleSheet } from "react-native";
-import { Card } from "react-native-elements";
-import { Text, Button } from "native-base";
 import axios from 'axios'
-
+import { Button, Text } from "native-base";
+import { ScrollView, View, StyleSheet } from "react-native";
+import { Card } from "react-native-elements";
 import sharedStyle from "../../style/shared";
 
 const style = StyleSheet.create({
@@ -12,26 +11,13 @@ const style = StyleSheet.create({
   }
 });
 
-export default class loginScreen extends React.PureComponent {
-  constructor (props) {
+export default class FavoriteItems extends React.Component {
+  constructor(props) {
     super(props)
-    this.onPress = this.onPress.bind(this)
+    this.state = {
+      favoriteItems: []
+    }
   }
-
-  onPress () {
-    axios({
-      method: 'get',
-      url: 'https://dev-integration2.us.qlik-stage.com/api/v1/collections',
-      headers: {
-        'Authorization': `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik5EUXpSRU5CTlRsRk1EazNOMEU1TVVRMU1qUTROVEZFTTBZNU56SXlSakZFUXpZNE9FSTBPUSJ9.eyJpc3MiOiJodHRwczovL3FsaWstaHlicmlkLmF1dGgwLmNvbS8iLCJzdWIiOiJVVkZQdGtRamZYUEJtSzU4MnZGM0lTRUVUcDBvVTVlNUBjbGllbnRzIiwiYXVkIjoicWxpay5hcGkiLCJpYXQiOjE1MzY4NjIzMzEsImV4cCI6MTUzNjk0ODczMSwiYXpwIjoiVVZGUHRrUWpmWFBCbUs1ODJ2RjNJU0VFVHAwb1U1ZTUiLCJndHkiOiJjbGllbnQtY3JlZGVudGlhbHMifQ.rEhefDS1PAu4fNl_HRCYBwL1NpWeoS29Ze9b1eZ4EDsrfpOgShryHJlS829nQySw-0OIGQvcpgNmxQtFsOuLkeA4FdyZ8ftJj6OnXRYpJ2WuFfKTL5LHzz09uJsqALAOM3poRjO1hH1hSbHrKioeATe0DMooEHCmFaIB3VkMs54-dVUXXtGfBJoFY5LdfGCs4xBQuEfw8PFwGPNN9AU5LAcLMlIVq2jBhMZrF7GUjHzTrSKM6mGWeI7Fo_cDW4pN48u2utS60dpo9onDZ-smStQkBeVi2cuiDrL-SSeBNhEZxpVTq3Wh39xgoOyMWdd7hryMTXlGYspoCEQR_GAmWw`
-      }
-    }).then(res => {
-      console.log(res)
-    }).catch(err => {
-      console.log(err)
-    })
-  }
-
   static navigationOptions = props => {
     return {
       headerRight: (
@@ -47,31 +33,42 @@ export default class loginScreen extends React.PureComponent {
     };
   };
 
-  render () {
-    const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  _renderItem({ item, index }) {
+    return (
+      <View>
+        <Card title="Favorites">
+          <Text>{item.title}</Text>
+        </Card>
+      </View>
+    );
+  }
+
+  async componentDidMount() {
+    try {
+      let res = await axios({
+        url: 'https://dev-integration2.us.qlik-stage.com/api/v1/collections/5b9ab7a7b277760001ecab27/items',
+        headers: {
+          'authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik5EUXpSRU5CTlRsRk1EazNOMEU1TVVRMU1qUTROVEZFTTBZNU56SXlSakZFUXpZNE9FSTBPUSJ9.eyJpc3MiOiJodHRwczovL3FsaWstaHlicmlkLmF1dGgwLmNvbS8iLCJzdWIiOiJVVkZQdGtRamZYUEJtSzU4MnZGM0lTRUVUcDBvVTVlNUBjbGllbnRzIiwiYXVkIjoicWxpay5hcGkiLCJpYXQiOjE1MzY4NjY1MTcsImV4cCI6MTUzNjk1MjkxNywiYXpwIjoiVVZGUHRrUWpmWFBCbUs1ODJ2RjNJU0VFVHAwb1U1ZTUiLCJndHkiOiJjbGllbnQtY3JlZGVudGlhbHMifQ.TUd8HHjhXT_ISwl3HgVZ8CHz0QQ7MipIzdaj600w3uYF9D-g7YC3k2eaiiMo7PH86Y4XSWX5lRQ29gjRmDViIwNy7v_3UrE8cmi2xR3x3VhtguKCjYlbUQBoAePU9bOTRKiEakm3RGVjq9Aft99xWlvzWpGBt39cm8XcxweZq2-ydNYxuZnk2R6OFze7MblIts_ARLV_7G1WPBqMebWvOfTV2TaiuaUSodBEss7PAb5NZ9bwi17hSxHWJ3dTzkjT2r3hfjAWea48skVdodpiNWxmyqRC3oTahppAx-5ED12AksHXSYytacVLDueMJpeCviOORTWoiKbGFZAdwKt4PQ',
+        }
+      })
+      console.log(res)
+      this.setState({ favoriteItems: res.data.data })
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
+  render() {
     return (
       <ScrollView>
-        <Button transparent onPress={this.onPress}>
-          <Text>Click me!</Text>
-        </Button>
-        {cards.map(key => (
-          <Card key={key} title="HELLO WORLD">
-            <Text style={{ marginBottom: 10 }}>
-              The idea with React Native Elements is more about component
-							structure than actual design.
-						</Text>
-            <Button
-              icon={{ name: "code" }}
-              backgroundColor="#03A9F4"
-              buttonStyle={{
-                borderRadius: 0,
-                marginLeft: 0,
-                marginRight: 0,
-                marginBottom: 0
-              }}
-              title="VIEW NOW"
-            />
-          </Card>
+        {this.state.favoriteItems.map(({ id, name, description, type, itemCount }) => (
+          <View key={id} >
+            <Card title={name} >
+              <Text>{description}</Text>
+              <Text>{type}</Text>
+              <Text>{itemCount}</Text>
+            </Card>
+          </View>
         ))}
       </ScrollView>
     );

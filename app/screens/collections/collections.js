@@ -13,7 +13,7 @@ const style = StyleSheet.create({
 });
 
 export default class Collections extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = {
       collections: []
@@ -34,7 +34,7 @@ export default class Collections extends React.Component {
     };
   };
 
-  _renderItem ({ item, index }) {
+  _renderItem({ item, index }) {
     return (
       <View>
         <Card title="Collection">
@@ -44,19 +44,24 @@ export default class Collections extends React.Component {
     );
   }
 
-  async componentDidMount () {
+  async componentDidMount() {
     try {
       let res = await axios({
-        url: 'https://dev-integration2.us.qlik-stage.com/api/v1/collections',
-        headers: { Cookie: 'eas.sid=8SM5onyoU6N-If_5RP1VvyWjsTiY5rv1; eas.sid.sig=PS-2mvq0VYTDGJD9bE4sP44vM2E;' }
+        url: 'https://qcs.us.qlik-stage.com/api/v1/collections',
+        headers: {
+          'cookie': 'eas.sid=yZCBC2dK8x6OSwyn1OAmMIoO_2TCrLeB; eas.sid.sig=U3rprELcsT5RpOXQQP1rMsLTzO4',
+          //'accept': '*/*',
+          //'authority': 'qcs.us.qlik-stage.com'
+        }
       })
+      console.log(res)
       this.setState({ collections: res.data.data })
     } catch (err) {
       console.log(err)
     }
   }
 
-  render () {
+  render() {
     return (
       <ScrollView>
         {this.state.collections.map(({ name, description, type, itemsCount }) => (

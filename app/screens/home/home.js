@@ -13,18 +13,20 @@ const style = StyleSheet.create({
 });
 
 export default class loginScreen extends React.PureComponent {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.onPress = this.onPress.bind(this)
   }
 
-  onPress () {
+  onPress() {
     try {
       axios({
         method: 'get',
-        url: 'https://dev-integration2.us.qlik-stage.com/api/v1/collections',
+        url: 'https://qcs.us.qlik-stage.com/api/v1/collections',
         headers: {
-          'Cookie': 'eas.sid=8SM5onyoU6N-If_5RP1VvyWjsTiY5rv1; eas.sid.sig=PS-2mvq0VYTDGJD9bE4sP44vM2E;'
+          'cookie': 'eas.sid=yZCBC2dK8x6OSwyn1OAmMIoO_2TCrLeB; eas.sid.sig=U3rprELcsT5RpOXQQP1rMsLTzO4',
+          'accept': '*/*',
+          'authority': 'qcs.us.qlik-stage.com'
         }
       })
     } catch (err) {
@@ -47,7 +49,7 @@ export default class loginScreen extends React.PureComponent {
     };
   };
 
-  render () {
+  render() {
     const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
     return (
       <ScrollView>

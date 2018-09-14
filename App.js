@@ -1,6 +1,7 @@
 import React from 'react'
 import * as ReactNavigation from 'react-navigation'
 import { View } from 'react-native'
+import { Root } from 'native-base'
 import { Font, AppLoading } from 'expo'
 import AppNavigator from './app/navigation'
 
@@ -24,9 +25,11 @@ class App extends React.Component {
     }
 
     return (
-      <View style={{ flex: 1, backgroundColor: 'white' }}>
-        <AppNavigator />
-      </View>
+      <Root>
+        <View style={{ flex: 1, backgroundColor: 'white' }}>
+          <AppNavigator />
+        </View>
+      </Root>
     )
   }
 }

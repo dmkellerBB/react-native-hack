@@ -1,6 +1,7 @@
 import React from "react"
 import axios from "axios"
 import { Image } from "react-native"
+import { Toast } from 'native-base'
 import { ScrollView, View, StyleSheet } from "react-native"
 import { Card, Button, Text } from "react-native-elements"
 import dateformat from "dateformat"
@@ -15,8 +16,7 @@ export default class FavoriteItems extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      favoriteItems: [],
-      overlayVisible: false
+      favoriteItems: []
     }
   }
 
@@ -41,9 +41,15 @@ export default class FavoriteItems extends React.Component {
 
       this.timer = setInterval(async () => {
         let items = await this.getItems()
-        if (items.length > this.state.favoriteItems.length) {
-          alert('You have new apps!')
+        if (items.length < this.state.favoriteItems.length) {
           this.setState({ favoriteItems: items })
+        } else if (items.length > this.state.favoriteItems.length) {
+          this.setState({ favoriteItems: items })
+          await Toast.show({
+            text: "You have a new App!",
+            buttonText: "Okay",
+            duration: 5000
+          })
         }
       }, 1000)
     } catch (err) {

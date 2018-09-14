@@ -30,6 +30,6 @@ export default class Sense extends React.Component {
 	};
 
 	render() {
-		return <WebView source={{ uri: "https://qcs.us.qlik-stage.com/" }} />;
+		return <WebView source={{ uri: this.props.navigation.state.params.uri }} />;
 	}
 }

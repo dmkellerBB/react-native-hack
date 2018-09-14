@@ -15,6 +15,8 @@ export default class FavoriteItems extends React.Component {
     }
   }
 
+  static navigationOptions = () => ({ headerTitle: "Favorites" })
+
   async componentDidMount() {
     try {
       let res = await axios({

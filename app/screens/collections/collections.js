@@ -19,14 +19,14 @@ export default class Collections extends React.Component {
 
   static navigationOptions = () => ({ headerTitle: "Collections" })
 
-  async onCollectionPress(id) {
+  async onCollectionPress(name, id) {
     try {
       const res = await axios({
         method: 'get',
         url: `${collEndpoint}/${id}/items`,
         headers
       })
-      this.props.navigation.navigate('Apps', { items: res.data.data })
+      this.props.navigation.navigate('Apps', { name: name, items: res.data.data })
     } catch (err) {
       console.log(err)
     }
@@ -69,7 +69,7 @@ export default class Collections extends React.Component {
                   borderRadius: 5,
                   marginTop: 20
                 }}
-                onPress={() => { this.onCollectionPress(id) }}
+                onPress={() => { this.onCollectionPress(name, id) }}
               />
             </Card>
           </View>

@@ -8,7 +8,7 @@ export default class Apps extends React.Component {
 
   static navigationOptions = props => {
     return {
-      headerTitle: "Apps",
+      headerTitle: props.navigation.state.params.name,
       headerLeft: (
         <Button
           icon={{ name: 'chevron-left', size: 20, color: 'black' }}

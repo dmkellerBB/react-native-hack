@@ -30,7 +30,7 @@ const Tabs = TabNavigator(
 	},
 	{
 		tabBarOptions: {
-			activeTintColor: "#61a729",
+			activeTintColor: "#91c26a",
 			inactiveTintColor: "gray"
 		},
 		animationEnabled: true

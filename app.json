@@ -4,7 +4,7 @@
 		"sdkVersion": "25.0.0",
 		"splash": {
 			"image": "./app/assets/splash.png",
-			"backgroundColor": "#c0dca9"
+			"backgroundColor": "#91c26a"
 		}
 	}
 }

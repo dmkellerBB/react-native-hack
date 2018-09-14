@@ -7,11 +7,11 @@ import Icon from "react-native-vector-icons/FontAwesome";
 const collEndpoint =
   "https://dev-integration2.us.qlik-stage.com/api/v1/collections";
 const headers = {
-  Authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik5EUXpSRU5CTlRsRk1EazNOMEU1TVVRMU1qUTROVEZFTTBZNU56SXlSakZFUXpZNE9FSTBPUSJ9.eyJpc3MiOiJodHRwczovL3FsaWstaHlicmlkLmF1dGgwLmNvbS8iLCJzdWIiOiJVVkZQdGtRamZYUEJtSzU4MnZGM0lTRUVUcDBvVTVlNUBjbGllbnRzIiwiYXVkIjoicWxpay5hcGkiLCJpYXQiOjE1MzY4NjIzMzEsImV4cCI6MTUzNjk0ODczMSwiYXpwIjoiVVZGUHRrUWpmWFBCbUs1ODJ2RjNJU0VFVHAwb1U1ZTUiLCJndHkiOiJjbGllbnQtY3JlZGVudGlhbHMifQ.rEhefDS1PAu4fNl_HRCYBwL1NpWeoS29Ze9b1eZ4EDsrfpOgShryHJlS829nQySw-0OIGQvcpgNmxQtFsOuLkeA4FdyZ8ftJj6OnXRYpJ2WuFfKTL5LHzz09uJsqALAOM3poRjO1hH1hSbHrKioeATe0DMooEHCmFaIB3VkMs54-dVUXXtGfBJoFY5LdfGCs4xBQuEfw8PFwGPNN9AU5LAcLMlIVq2jBhMZrF7GUjHzTrSKM6mGWeI7Fo_cDW4pN48u2utS60dpo9onDZ-smStQkBeVi2cuiDrL-SSeBNhEZxpVTq3Wh39xgoOyMWdd7hryMTXlGYspoCEQR_GAmWw`
+  Authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik5EUXpSRU5CTlRsRk1EazNOMEU1TVVRMU1qUTROVEZFTTBZNU56SXlSakZFUXpZNE9FSTBPUSJ9.eyJpc3MiOiJodHRwczovL3FsaWstaHlicmlkLmF1dGgwLmNvbS8iLCJzdWIiOiJVVkZQdGtRamZYUEJtSzU4MnZGM0lTRUVUcDBvVTVlNUBjbGllbnRzIiwiYXVkIjoicWxpay5hcGkiLCJpYXQiOjE1MzY5NDUxMDUsImV4cCI6MTUzNzAzMTUwNSwiYXpwIjoiVVZGUHRrUWpmWFBCbUs1ODJ2RjNJU0VFVHAwb1U1ZTUiLCJndHkiOiJjbGllbnQtY3JlZGVudGlhbHMifQ.kcG02WBDqTKtRNxWL9Lgaq7_rouoQ1MHmK3vJHzaFtnYQGWxdt6O-O9Xq-40WAUaWtBO0sQiVqFDQJYPFFXmXE4kKmptcaozlg_On1tatfbNdWFQQW1J4qL00wO5WEcVjMN4EGzR1KSc5VYY77QBb4909KcxLjz4yzvYKwaVMUFo8p1sejjQPh8MrqP7D7fIKsDAs0yDdWWyP5ACgduszlYKoLibE_rGs7X706jjUrgVc9Y8bWTNX4Zb-Vj5brsU8KONIOUS8Z-857RKux7bjfVDhigdIVmo8rdOQHjXvfkrM3FNGs06Z2DGanzKL8vtC4sBri73zxGUXrwUqmxd8g`
 };
 
 export default class Collections extends React.Component {
-  constructor(props) {
+  constructor (props) {
     super(props);
     this.state = {
       collections: []
@@ -19,7 +19,7 @@ export default class Collections extends React.Component {
     this.onCollectionPress = this.onCollectionPress.bind(this);
   }
 
-  async onCollectionPress(name, id) {
+  async onCollectionPress (name, id) {
     try {
       const res = await axios({
         method: "get",
@@ -45,7 +45,7 @@ export default class Collections extends React.Component {
     };
   };
 
-  async componentDidMount() {
+  async componentDidMount () {
     try {
       let res = await axios({
         method: "get",
@@ -58,7 +58,7 @@ export default class Collections extends React.Component {
     }
   }
 
-  render() {
+  render () {
     return (
       <ScrollView>
         {this.state.collections.map(

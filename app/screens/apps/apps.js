@@ -21,7 +21,7 @@ export default class Apps extends React.Component {
     }
   }
 
-  render () {
+  render() {
     return (
       <ScrollView>
         {this.props.navigation.state.params.items.map(({ id, name, description, createdAt, links: { open, thumbnail: { href } } }) => (
@@ -34,7 +34,7 @@ export default class Apps extends React.Component {
                 title='OPEN APP'
                 fontSize={12}
                 color='#63a649'
-                buttonStyle={{ backgroundColor: "#fff", width: 300, height: 35, borderColor: "#63a649", borderWidth: 1, borderRadius: 5, marginTop: 20 }}
+                buttonStyle={{ backgroundColor: "#fff", width: "100%", height: 35, borderColor: "#63a649", borderWidth: 1, borderRadius: 5, marginTop: 20 }}
                 onPress={() => this.props.navigation.navigate("App", { uri: open.href })}
               />
             </Card>

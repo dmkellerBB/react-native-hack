@@ -9,7 +9,7 @@ const headers = {
 }
 
 export default class Collections extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = {
       collections: []
@@ -19,7 +19,7 @@ export default class Collections extends React.Component {
 
   static navigationOptions = () => ({ headerTitle: "Collections" })
 
-  async onCollectionPress (id) {
+  async onCollectionPress(id) {
     try {
       const res = await axios({
         method: 'get',
@@ -33,7 +33,7 @@ export default class Collections extends React.Component {
 
   }
 
-  async componentDidMount () {
+  async componentDidMount() {
     try {
       let res = await axios({
         method: 'get',
@@ -46,7 +46,7 @@ export default class Collections extends React.Component {
     }
   }
 
-  render () {
+  render() {
     return (
       <ScrollView>
         {this.state.collections.map(({ id, name, description, type, itemCount }) => (
@@ -62,7 +62,7 @@ export default class Collections extends React.Component {
                 color='#63a649'
                 buttonStyle={{
                   backgroundColor: "#fff",
-                  width: 300,
+                  width: "100%",
                   height: 35,
                   borderColor: "#63a649",
                   borderWidth: 1,

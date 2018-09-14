@@ -24,22 +24,6 @@ export default class FavoriteItems extends React.Component {
     }
   }
 
-  // static navigationOptions = props => {
-  //   return {
-  //     headerTitle: "Home",
-  //     headerRight: (
-  //       <Button
-  //         transparent
-  //         iconLeft
-  //         style={sharedStyle.headerButton}
-  //         onPress={() => props.navigation.navigate("Webview")}
-  //       >
-  //         <Text style={style.backText}>Webview</Text>
-  //       </Button>
-  //     )
-  //   }
-  // }
-
   async componentDidMount() {
     try {
       let res = await axios({
@@ -48,7 +32,6 @@ export default class FavoriteItems extends React.Component {
           'authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik5EUXpSRU5CTlRsRk1EazNOMEU1TVVRMU1qUTROVEZFTTBZNU56SXlSakZFUXpZNE9FSTBPUSJ9.eyJpc3MiOiJodHRwczovL3FsaWstaHlicmlkLmF1dGgwLmNvbS8iLCJzdWIiOiJVVkZQdGtRamZYUEJtSzU4MnZGM0lTRUVUcDBvVTVlNUBjbGllbnRzIiwiYXVkIjoicWxpay5hcGkiLCJpYXQiOjE1MzY4NjY1MTcsImV4cCI6MTUzNjk1MjkxNywiYXpwIjoiVVZGUHRrUWpmWFBCbUs1ODJ2RjNJU0VFVHAwb1U1ZTUiLCJndHkiOiJjbGllbnQtY3JlZGVudGlhbHMifQ.TUd8HHjhXT_ISwl3HgVZ8CHz0QQ7MipIzdaj600w3uYF9D-g7YC3k2eaiiMo7PH86Y4XSWX5lRQ29gjRmDViIwNy7v_3UrE8cmi2xR3x3VhtguKCjYlbUQBoAePU9bOTRKiEakm3RGVjq9Aft99xWlvzWpGBt39cm8XcxweZq2-ydNYxuZnk2R6OFze7MblIts_ARLV_7G1WPBqMebWvOfTV2TaiuaUSodBEss7PAb5NZ9bwi17hSxHWJ3dTzkjT2r3hfjAWea48skVdodpiNWxmyqRC3oTahppAx-5ED12AksHXSYytacVLDueMJpeCviOORTWoiKbGFZAdwKt4PQ',
         }
       })
-      console.log(res)
       this.setState({ favoriteItems: res.data.data })
     } catch (err) {
       console.log(err)

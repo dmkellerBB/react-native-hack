@@ -12,7 +12,7 @@ const style = StyleSheet.create({
 });
 
 export default class Apps extends React.Component {
-  getDate(date) {
+  getDate (date) {
     return dateformat(new Date(date));
   }
 
@@ -31,20 +31,20 @@ export default class Apps extends React.Component {
           icon={{
             name: "chevron-left",
             size: 20,
-            color: "black"
+            color: "gray"
           }}
           title="Back"
           onPress={() => props.navigation.goBack()}
           buttonStyle={{
             backgroundColor: "transparent"
           }}
-          color="#000"
+          color="gray"
         />
       )
     };
   };
 
-  render() {
+  render () {
     return (
       <ScrollView>
         {this.props.navigation.state.params.items.map(

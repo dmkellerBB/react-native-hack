@@ -3,28 +3,19 @@ import axios from 'axios'
 import { Text } from "native-base";
 import { ScrollView, View, StyleSheet } from "react-native";
 import { Card, Button } from "react-native-elements";
-import sharedStyle from "../../style/shared";
 import dateformat from 'dateformat'
 
-const style = StyleSheet.create({
-  backText: {
-    color: "black"
-  }
-});
-
 export default class FavoriteItems extends React.Component {
-  getDate(date) {
-    return dateformat(new Date(date))
-  }
+  getDate = date => dateformat(new Date(date))
 
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {
       favoriteItems: []
     }
   }
 
-  async componentDidMount() {
+  async componentDidMount () {
     try {
       let res = await axios({
         url: 'https://dev-integration2.us.qlik-stage.com/api/v1/collections/5b9ab7a7b277760001ecab27/items',
@@ -38,7 +29,7 @@ export default class FavoriteItems extends React.Component {
     }
   }
 
-  render() {
+  render () {
     return (
       <ScrollView>
         {this.state.favoriteItems.map(({ id, name, description, createdAt, links: { open, thumbnail: { href } } }) => (
@@ -47,20 +38,12 @@ export default class FavoriteItems extends React.Component {
               <Text>description: {description}</Text>
               <Text>created: {this.getDate(createdAt)}</Text>
               <Button
-                icon={{ name: 'open-in-new' }}
+                rightIcon={{ name: 'open-in-new' }}
                 title='OPEN APP'
                 fontSize={12}
                 color='#63a649'
-                buttonStyle={{
-                  backgroundColor: "#fff",
-                  width: '100%',
-                  height: 35,
-                  borderColor: "#63a649",
-                  borderWidth: 1,
-                  borderRadius: 5,
-                  marginTop: 20
-                }}
-                onPress={() => this.props.navigation.navigate("Webview", { uri: open.href })}
+                buttonStyle={{ backgroundColor: "#fff", width: 300, height: 35, borderColor: "#63a649", borderWidth: 1, borderRadius: 5, marginTop: 20 }}
+                onPress={() => this.props.navigation.navigate("App", { uri: open.href })}
               />
             </Card>
           </View>

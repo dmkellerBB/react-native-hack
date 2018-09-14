@@ -1,12 +1,11 @@
-import React from "react";
-import { ScrollView, View, StyleSheet } from "react-native";
+import React from "react"
+import { ScrollView, View } from "react-native"
 import axios from 'axios'
-import { Card, Button, Text } from "react-native-elements";
-import sharedStyle from "../../style/shared";
+import { Card, Button, Text } from "react-native-elements"
 
 const collEndpoint = 'https://dev-integration2.us.qlik-stage.com/api/v1/collections'
 const headers = {
-  'Authorization': `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik5EUXpSRU5CTlRsRk1EazNOMEU1TVVRMU1qUTROVEZFTTBZNU56SXlSakZFUXpZNE9FSTBPUSJ9.eyJpc3MiOiJodHRwczovL3FsaWstaHlicmlkLmF1dGgwLmNvbS8iLCJzdWIiOiJVVkZQdGtRamZYUEJtSzU4MnZGM0lTRUVUcDBvVTVlNUBjbGllbnRzIiwiYXVkIjoicWxpay5hcGkiLCJpYXQiOjE1MzY4NjIzMzEsImV4cCI6MTUzNjk0ODczMSwiYXpwIjoiVVZGUHRrUWpmWFBCbUs1ODJ2RjNJU0VFVHAwb1U1ZTUiLCJndHkiOiJjbGllbnQtY3JlZGVudGlhbHMifQ.rEhefDS1PAu4fNl_HRCYBwL1NpWeoS29Ze9b1eZ4EDsrfpOgShryHJlS829nQySw-0OIGQvcpgNmxQtFsOuLkeA4FdyZ8ftJj6OnXRYpJ2WuFfKTL5LHzz09uJsqALAOM3poRjO1hH1hSbHrKioeATe0DMooEHCmFaIB3VkMs54-dVUXXtGfBJoFY5LdfGCs4xBQuEfw8PFwGPNN9AU5LAcLMlIVq2jBhMZrF7GUjHzTrSKM6mGWeI7Fo_cDW4pN48u2utS60dpo9onDZ-smStQkBeVi2cuiDrL-SSeBNhEZxpVTq3Wh39xgoOyMWdd7hryMTXlGYspoCEQR_GAmWw`
+  'Authorization': `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik5EUXpSRU5CTlRsRk1EazNOMEU1TVVRMU1qUTROVEZFTTBZNU56SXlSakZFUXpZNE9FSTBPUSJ9.eyJpc3MiOiJodHRwczovL3FsaWstaHlicmlkLmF1dGgwLmNvbS8iLCJzdWIiOiJVVkZQdGtRamZYUEJtSzU4MnZGM0lTRUVUcDBvVTVlNUBjbGllbnRzIiwiYXVkIjoicWxpay5hcGkiLCJpYXQiOjE1MzY5MzIzNDMsImV4cCI6MTUzNzAxODc0MywiYXpwIjoiVVZGUHRrUWpmWFBCbUs1ODJ2RjNJU0VFVHAwb1U1ZTUiLCJndHkiOiJjbGllbnQtY3JlZGVudGlhbHMifQ.ZLn-9mGFJJtase0c__FNAfcn6FZP2K2QygkBjOPfNTySndrkZY9HKKARzNzV8kpwpAseKPXWjRUezcw2DZNkTHCsPjrYQZUOU80icb5PsQRsfObxOtATSglk6noTWgtp2L3x_lrCrrljozgFEXQKz1X0AN1L8lddJWhjle64lHM_vH7W5VwcABERxYgvD7YEV0rsoGak7W_lHcmcV4rOF4cVxStFfDMBaNXvqDKuJvTcwQ26LWbY_wcQCwP90jwF4Ll-NAi0lI5pru6G9fBixWjl02ruY4kiLZuPS_DcpV_yNV2vUs2Pe2SXUbXyT_Qt4A9T8BgNzAdoiP2hEa5zdQ`
 }
 
 export default class Collections extends React.Component {
@@ -17,6 +16,8 @@ export default class Collections extends React.Component {
     }
     this.onCollectionPress = this.onCollectionPress.bind(this)
   }
+
+  static navigationOptions = () => ({ headerTitle: "Collections" })
 
   async onCollectionPress (id) {
     try {
@@ -30,12 +31,6 @@ export default class Collections extends React.Component {
       console.log(err)
     }
 
-  }
-
-  static navigationOptions = props => {
-    return {
-      headerTitle: "Collections"
-    }
   }
 
   async componentDidMount () {

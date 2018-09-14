@@ -1,9 +1,9 @@
-import React from "react";
-import { StackNavigator, TabNavigator } from "react-navigation";
-import Icon from "react-native-vector-icons/FontAwesome";
-import screens from "../screens";
+import React from "react"
+import { StackNavigator, TabNavigator } from "react-navigation"
+import Icon from "react-native-vector-icons/FontAwesome"
+import screens from "../screens"
 
-const { Home, Collections, Webview, Apps } = screens;
+const { Home, Collections, Apps, App } = screens
 
 const Tabs = TabNavigator(
   {
@@ -31,25 +31,25 @@ const Tabs = TabNavigator(
     },
     animationEnabled: true
   }
-);
+)
 
 const MainNavigator = StackNavigator(
   {
-    App: {
+    Main: {
       screen: Tabs
-    },
-    Webview: {
-      screen: Webview
     },
     Apps: {
       screen: Apps
+    },
+    App: {
+      screen: App
     }
   },
   {
-    initialRouteName: "App",
+    initialRouteName: "Main",
     headerMode: "none"
   }
-);
+)
 
 export default StackNavigator(
   {
@@ -60,4 +60,4 @@ export default StackNavigator(
   {
     initialRouteName: "Main"
   }
-);
+)

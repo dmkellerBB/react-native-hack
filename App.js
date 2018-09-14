@@ -1,12 +1,34 @@
-import React from 'react';
-import { Provider } from 'react-redux';
-import store from './app/store';
-import App from './app/index';
+import React from 'react'
+import * as ReactNavigation from 'react-navigation'
+import { View } from 'react-native'
+import { Font, AppLoading } from 'expo'
+import AppNavigator from './app/navigation'
 
-export const appStore = store;
+class App extends React.Component {
+  constructor (props) {
+    super(props);
+    this.state = { loading: true }
+  }
 
-export default () => (
-  <Provider store={store}>
-    <App/>
-  </Provider>
-);
+  async componentWillMount () {
+    await Font.loadAsync({
+      Roboto: require("native-base/Fonts/Roboto.ttf"),
+      Roboto_medium: require("native-base/Fonts/Roboto_medium.ttf"),
+    })
+    this.setState({ loading: false })
+  }
+
+  render () {
+    if (this.state.loading) {
+      return <AppLoading />
+    }
+
+    return (
+      <View style={{ flex: 1, backgroundColor: 'white' }}>
+        <AppNavigator />
+      </View>
+    )
+  }
+}
+
+export default App

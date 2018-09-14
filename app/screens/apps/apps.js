@@ -108,7 +108,7 @@ export default class Apps extends React.Component {
                     color="#63a649"
                     buttonStyle={{
                       backgroundColor: "#fff",
-                      width: 300,
+                      width: "100%",
                       height: 35,
                       borderColor: "#63a649",
                       borderWidth: 1,

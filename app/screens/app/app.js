@@ -6,6 +6,13 @@ export default class App extends React.Component {
   static navigationOptions = props => {
     return {
       headerTitle: "App",
+      headerStyle: {
+        backgroundColor: "#61a729"
+      },
+      headerTintColor: "#fff",
+      headerTitleStyle: {
+        fontWeight: "bold"
+      },
       headerLeft: (
         <Button
           icon={{

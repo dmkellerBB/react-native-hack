@@ -39,15 +39,18 @@ const Tabs = TabNavigator(
 
 const MainNavigator = StackNavigator(
 	{
-		App: {
+		Main: {
 			screen: Tabs
 		},
 		Apps: {
 			screen: Apps
+		},
+		App: {
+			screen: App
 		}
 	},
 	{
-		initialRouteName: "App",
+		initialRouteName: "Main",
 		headerMode: "none"
 	}
 );

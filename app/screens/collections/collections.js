@@ -36,7 +36,7 @@ export default class Collections extends React.Component {
 		return {
 			headerTitle: "Collections",
 			headerStyle: {
-				backgroundColor: "#c0dca9"
+				backgroundColor: "#61a729"
 			},
 			headerTintColor: "#fff",
 			headerTitleStyle: {

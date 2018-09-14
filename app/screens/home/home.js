@@ -44,7 +44,7 @@ export default class FavoriteItems extends React.Component {
     return {
       headerTitle: "Home",
       headerStyle: {
-        backgroundColor: "#c0dca9"
+        backgroundColor: "#61a729"
       },
       headerTintColor: "#fff",
       headerTitleStyle: {
